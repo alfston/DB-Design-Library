@@ -16,28 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `author`
+-- Table structure for table `account`
 --
 
-DROP TABLE IF EXISTS `author`;
+DROP TABLE IF EXISTS `account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `author` (
-  `id` int NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `biography` varchar(45) DEFAULT NULL,
-  `birthDate` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `account` (
+  `number` int NOT NULL,
+  `opened` date DEFAULT NULL,
+  `state` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`number`),
+  KEY `account_state_idx` (`state`),
+  CONSTRAINT `account_state` FOREIGN KEY (`state`) REFERENCES `account_state` (`account_state`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `author`
+-- Dumping data for table `account`
 --
 
-LOCK TABLES `author` WRITE;
-/*!40000 ALTER TABLE `author` DISABLE KEYS */;
-/*!40000 ALTER TABLE `author` ENABLE KEYS */;
+LOCK TABLES `account` WRITE;
+/*!40000 ALTER TABLE `account` DISABLE KEYS */;
+/*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-15 13:15:51
+-- Dump completed on 2020-11-15 13:15:49
