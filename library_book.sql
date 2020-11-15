@@ -32,7 +32,9 @@ CREATE TABLE `book` (
   `authorID` int NOT NULL,
   PRIMARY KEY (`ISBN`),
   KEY `author_writes_book_idx` (`authorID`),
-  CONSTRAINT `author_writes_book` FOREIGN KEY (`authorID`) REFERENCES `author` (`id`)
+  KEY `language_is_a_enum_idx` (`language`),
+  CONSTRAINT `author_writes_book` FOREIGN KEY (`authorID`) REFERENCES `author` (`id`) ON UPDATE CASCADE,
+  CONSTRAINT `language_is_a_enum` FOREIGN KEY (`language`) REFERENCES `lang` (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -54,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-15 12:04:27
+-- Dump completed on 2020-11-15 12:19:39

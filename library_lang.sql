@@ -16,35 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `item`
+-- Table structure for table `lang`
 --
 
-DROP TABLE IF EXISTS `item`;
+DROP TABLE IF EXISTS `lang`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `item` (
-  `barcode` int NOT NULL,
-  `ISBN` varchar(45) DEFAULT NULL,
-  `isReferenceOnly` tinyint DEFAULT NULL,
-  `lang` varchar(45) DEFAULT NULL,
-  `format` enum('Paperback','Hardcover','Audiobook','PDF') DEFAULT NULL,
-  `borrowed` date DEFAULT NULL,
-  `loanPeriod` int DEFAULT NULL,
-  `dueDate` date DEFAULT NULL,
-  `isOverDue` tinyint DEFAULT NULL,
-  PRIMARY KEY (`barcode`),
-  KEY `Item_Is_A_Book_idx` (`ISBN`),
-  CONSTRAINT `Item_Is_A_Book` FOREIGN KEY (`ISBN`) REFERENCES `book` (`ISBN`) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE `lang` (
+  `language` varchar(45) NOT NULL,
+  PRIMARY KEY (`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `item`
+-- Dumping data for table `lang`
 --
 
-LOCK TABLES `item` WRITE;
-/*!40000 ALTER TABLE `item` DISABLE KEYS */;
-/*!40000 ALTER TABLE `item` ENABLE KEYS */;
+LOCK TABLES `lang` WRITE;
+/*!40000 ALTER TABLE `lang` DISABLE KEYS */;
+INSERT INTO `lang` VALUES ('English'),('French'),('German'),('Italian'),('Spanish');
+/*!40000 ALTER TABLE `lang` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
