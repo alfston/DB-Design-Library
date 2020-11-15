@@ -16,26 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `lang`
+-- Table structure for table `format`
 --
 
-DROP TABLE IF EXISTS `lang`;
+DROP TABLE IF EXISTS `format`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `lang` (
-  `language` varchar(45) NOT NULL,
-  PRIMARY KEY (`language`)
+CREATE TABLE `format` (
+  `format` varchar(45) NOT NULL,
+  PRIMARY KEY (`format`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `lang`
+-- Dumping data for table `format`
 --
 
-LOCK TABLES `lang` WRITE;
-/*!40000 ALTER TABLE `lang` DISABLE KEYS */;
-INSERT INTO `lang` VALUES ('English'),('French'),('German'),('Italian'),('Spanish');
-/*!40000 ALTER TABLE `lang` ENABLE KEYS */;
+LOCK TABLES `format` WRITE;
+/*!40000 ALTER TABLE `format` DISABLE KEYS */;
+INSERT INTO `format` VALUES ('audiobook'),('hardcover'),('paperback'),('pdf');
+/*!40000 ALTER TABLE `format` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-15 12:36:45
+-- Dump completed on 2020-11-15 12:36:46

@@ -27,13 +27,15 @@ CREATE TABLE `item` (
   `ISBN` varchar(45) DEFAULT NULL,
   `isReferenceOnly` tinyint DEFAULT NULL,
   `lang` varchar(45) DEFAULT NULL,
-  `format` enum('Paperback','Hardcover','Audiobook','PDF') DEFAULT NULL,
+  `format` varchar(45) DEFAULT NULL,
   `borrowed` date DEFAULT NULL,
   `loanPeriod` int DEFAULT NULL,
   `dueDate` date DEFAULT NULL,
   `isOverDue` tinyint DEFAULT NULL,
   PRIMARY KEY (`barcode`),
   KEY `Item_Is_A_Book_idx` (`ISBN`),
+  KEY `Format_is_an_enum_idx` (`format`),
+  CONSTRAINT `Format_is_an_enum` FOREIGN KEY (`format`) REFERENCES `format` (`format`) ON UPDATE CASCADE,
   CONSTRAINT `Item_Is_A_Book` FOREIGN KEY (`ISBN`) REFERENCES `book` (`ISBN`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -56,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-15 12:19:39
+-- Dump completed on 2020-11-15 12:36:45
