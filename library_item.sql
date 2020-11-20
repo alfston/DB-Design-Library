@@ -25,7 +25,6 @@ DROP TABLE IF EXISTS `item`;
 CREATE TABLE `item` (
   `barcode` int NOT NULL,
   `ISBN` varchar(45) DEFAULT NULL,
-  `isReferenceOnly` tinyint DEFAULT NULL,
   `lang` varchar(45) DEFAULT NULL,
   `format` varchar(45) DEFAULT NULL,
   `borrowed` date DEFAULT NULL,
@@ -35,7 +34,7 @@ CREATE TABLE `item` (
   PRIMARY KEY (`barcode`),
   KEY `Item_Is_A_Book_idx` (`ISBN`),
   KEY `Format_is_an_enum_idx` (`format`),
-  CONSTRAINT `Format_is_an_enum` FOREIGN KEY (`format`) REFERENCES `format` (`format`) ON UPDATE CASCADE,
+  CONSTRAINT `Format_is_an_enum` FOREIGN KEY (`format`) REFERENCES `format` (`format`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `Item_Is_A_Book` FOREIGN KEY (`ISBN`) REFERENCES `book` (`ISBN`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -58,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-15 13:15:49
+-- Dump completed on 2020-11-19 17:13:01

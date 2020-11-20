@@ -16,33 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `book`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `book`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `book` (
-  `ISBN` varchar(45) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `subject` varchar(45) DEFAULT NULL,
-  `publisher` varchar(45) DEFAULT NULL,
-  `publicationDate` date DEFAULT NULL,
-  `authorID` int NOT NULL,
-  PRIMARY KEY (`ISBN`),
-  KEY `author_writes_book_idx` (`authorID`),
-  CONSTRAINT `author_writes_book` FOREIGN KEY (`authorID`) REFERENCES `author` (`id`) ON UPDATE CASCADE
+CREATE TABLE `user` (
+  `id` int NOT NULL,
+  `role` varchar(45) DEFAULT NULL,
+  `first_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_has_role_idx` (`role`),
+  CONSTRAINT `user_has_role` FOREIGN KEY (`role`) REFERENCES `role` (`role`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `book`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `book` WRITE;
-/*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES ('1234','Harry Potter','Fantasy','Penguin House','1995-01-01',321),('2345','Hunger Games','Sci-Fi','Harper Collins','2010-01-01',213),('3456','Percy Jackson','Mythology','Harper Collins','2005-01-01',123),('4567','Divergent ','Fantasy ','Harper Collins','2011-01-01',332),('5678','The Magic Tree House ','Children\'s Books','Penguin Random House','1999-01-01',345);
-/*!40000 ALTER TABLE `book` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'Librarian','Alfston','Thomas'),(2,'Patron','Gabby ','Bruck'),(3,'Librarian','Emma','Sandke'),(4,'Patron','Lars','Rimmireid'),(5,'Librarian','Jose','Annunziato');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

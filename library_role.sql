@@ -16,33 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `book`
+-- Table structure for table `role`
 --
 
-DROP TABLE IF EXISTS `book`;
+DROP TABLE IF EXISTS `role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `book` (
-  `ISBN` varchar(45) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `subject` varchar(45) DEFAULT NULL,
-  `publisher` varchar(45) DEFAULT NULL,
-  `publicationDate` date DEFAULT NULL,
-  `authorID` int NOT NULL,
-  PRIMARY KEY (`ISBN`),
-  KEY `author_writes_book_idx` (`authorID`),
-  CONSTRAINT `author_writes_book` FOREIGN KEY (`authorID`) REFERENCES `author` (`id`) ON UPDATE CASCADE
+CREATE TABLE `role` (
+  `role` varchar(45) NOT NULL,
+  PRIMARY KEY (`role`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `book`
+-- Dumping data for table `role`
 --
 
-LOCK TABLES `book` WRITE;
-/*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES ('1234','Harry Potter','Fantasy','Penguin House','1995-01-01',321),('2345','Hunger Games','Sci-Fi','Harper Collins','2010-01-01',213),('3456','Percy Jackson','Mythology','Harper Collins','2005-01-01',123),('4567','Divergent ','Fantasy ','Harper Collins','2011-01-01',332),('5678','The Magic Tree House ','Children\'s Books','Penguin Random House','1999-01-01',345);
-/*!40000 ALTER TABLE `book` ENABLE KEYS */;
+LOCK TABLES `role` WRITE;
+/*!40000 ALTER TABLE `role` DISABLE KEYS */;
+INSERT INTO `role` VALUES ('Librarian'),('Patron');
+/*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

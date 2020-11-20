@@ -37,6 +37,7 @@ CREATE TABLE `author` (
 
 LOCK TABLES `author` WRITE;
 /*!40000 ALTER TABLE `author` DISABLE KEYS */;
+INSERT INTO `author` VALUES (123,'Rick Riordan ','Cute dog!','1970-01-01'),(213,'Suzanne Collins','Great Author','1976-01-01'),(321,'J.K. Rowling','Great British Chap!','1975-01-01'),(332,'Veronica Roth','Would be english teacher','1980-01-01'),(345,'Mary Pope Osborne','Understands the kids!','1960-01-01');
 /*!40000 ALTER TABLE `author` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-15 13:15:51
+-- Dump completed on 2020-11-19 17:13:00

@@ -26,9 +26,30 @@ CREATE TABLE `account` (
   `number` int NOT NULL,
   `opened` date DEFAULT NULL,
   `state` varchar(45) DEFAULT NULL,
+  `item1` varchar(45) DEFAULT NULL,
+  `item2` varchar(45) DEFAULT NULL,
+  `item3` varchar(45) DEFAULT NULL,
+  `item4` varchar(45) DEFAULT NULL,
+  `item5` varchar(45) DEFAULT NULL,
+  `libraryID` int DEFAULT NULL,
+  `patronID` int DEFAULT NULL,
   PRIMARY KEY (`number`),
   KEY `account_state_idx` (`state`),
-  CONSTRAINT `account_state` FOREIGN KEY (`state`) REFERENCES `account_state` (`account_state`) ON UPDATE CASCADE
+  KEY `account_library_idx` (`libraryID`),
+  KEY `account_has_patron_idx` (`patronID`),
+  KEY `item1_idx` (`item1`),
+  KEY `item2_id_idx` (`item2`),
+  KEY `item3_id_idx` (`item3`),
+  KEY `item4_id_idx` (`item4`),
+  KEY `item5_id_idx` (`item5`),
+  CONSTRAINT `account_has_patron` FOREIGN KEY (`patronID`) REFERENCES `patron` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `account_library` FOREIGN KEY (`libraryID`) REFERENCES `library` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `account_state` FOREIGN KEY (`state`) REFERENCES `account_state` (`account_state`) ON UPDATE CASCADE,
+  CONSTRAINT `item1_id` FOREIGN KEY (`item1`) REFERENCES `item` (`ISBN`),
+  CONSTRAINT `item2_id` FOREIGN KEY (`item2`) REFERENCES `item` (`ISBN`),
+  CONSTRAINT `item3_id` FOREIGN KEY (`item3`) REFERENCES `item` (`ISBN`),
+  CONSTRAINT `item4_id` FOREIGN KEY (`item4`) REFERENCES `item` (`ISBN`),
+  CONSTRAINT `item5_id` FOREIGN KEY (`item5`) REFERENCES `item` (`ISBN`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,4 +71,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-15 13:15:49
+-- Dump completed on 2020-11-19 17:13:00

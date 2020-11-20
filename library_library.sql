@@ -16,33 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `book`
+-- Table structure for table `library`
 --
 
-DROP TABLE IF EXISTS `book`;
+DROP TABLE IF EXISTS `library`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `book` (
-  `ISBN` varchar(45) NOT NULL,
+CREATE TABLE `library` (
   `name` varchar(45) DEFAULT NULL,
-  `subject` varchar(45) DEFAULT NULL,
-  `publisher` varchar(45) DEFAULT NULL,
-  `publicationDate` date DEFAULT NULL,
-  `authorID` int NOT NULL,
-  PRIMARY KEY (`ISBN`),
-  KEY `author_writes_book_idx` (`authorID`),
-  CONSTRAINT `author_writes_book` FOREIGN KEY (`authorID`) REFERENCES `author` (`id`) ON UPDATE CASCADE
+  `id` int NOT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `book`
+-- Dumping data for table `library`
 --
 
-LOCK TABLES `book` WRITE;
-/*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES ('1234','Harry Potter','Fantasy','Penguin House','1995-01-01',321),('2345','Hunger Games','Sci-Fi','Harper Collins','2010-01-01',213),('3456','Percy Jackson','Mythology','Harper Collins','2005-01-01',123),('4567','Divergent ','Fantasy ','Harper Collins','2011-01-01',332),('5678','The Magic Tree House ','Children\'s Books','Penguin Random House','1999-01-01',345);
-/*!40000 ALTER TABLE `book` ENABLE KEYS */;
+LOCK TABLES `library` WRITE;
+/*!40000 ALTER TABLE `library` DISABLE KEYS */;
+INSERT INTO `library` VALUES ('Boston Public Library',123,'100 Boylston St'),('Snell Library',234,'23 Huntington Ave');
+/*!40000 ALTER TABLE `library` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-19 17:13:01
+-- Dump completed on 2020-11-19 17:13:00
